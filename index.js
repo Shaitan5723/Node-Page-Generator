@@ -93,7 +93,7 @@ const init = () => {
         manager.id = managerData.managerID
         manager.email = managerData.managerEmail
         manager.officeNumber = managerData.managerOffice
-        console.log(manager)
+        // console.log(manager)
         teamMemberData.push(manager)
         teamSelect();
     })
@@ -118,7 +118,7 @@ const teamSelect = () => {
       console.log(teamMemberData);
       generatePage();
       break;
-      
+
       default:
         return console.log("Oops, something went wrong, please run the program again")
     }
@@ -133,7 +133,7 @@ const engQ = () => {
       engineer.id = engineerData.engineerID
       engineer.email = engineerData.engineerEmail
       engineer.github = engineerData.engineerGithub
-      console.log(engineer)
+      // console.log(engineer)
       teamMemberData.push(engineer)
       teamSelect();
     })
@@ -148,7 +148,7 @@ const internQ = () => {
       intern.id = internData.internID
       intern.email = internData.internEmail
       intern.school = internData.internSchool
-      console.log(intern)
+      // console.log(intern)
       teamMemberData.push(intern)
       teamSelect();
     })  
