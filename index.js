@@ -3,6 +3,8 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const fs = require("fs");
+const generateTeamCards = require("./src/htmltemplate");
+const teamMemberData = [];
 
 const managerQuestions = [
   { // User input type of question
@@ -92,6 +94,7 @@ const init = () => {
         manager.email = managerData.managerEmail
         manager.officeNumber = managerData.managerOffice
         console.log(manager)
+        teamMemberData.push(manager)
         teamSelect();
     })
     
@@ -104,11 +107,19 @@ const teamSelect = () => {
       case "Engineer": 
         engQ();
         break;
+
       case "Intern":
         internQ();
         break;
+
       case "I have finished building my team":
-      return console.log("Congratulations on building your team!")
+      console.log("Congratulations on building your team!")
+      console.log("Lets take a look at who they are.")  
+      console.log(teamMemberData);
+      generatePage();
+
+      default:
+        return console.log("Oops, something went wrong, please run the program again")
     }
   })
 }
@@ -122,6 +133,7 @@ const engQ = () => {
       engineer.email = engineerData.engineerEmail
       engineer.github = engineerData.engineerGithub
       console.log(engineer)
+      teamMemberData.push(engineer)
       teamSelect();
     })
     
@@ -136,9 +148,19 @@ const internQ = () => {
       intern.email = internData.internEmail
       intern.school = internData.internSchool
       console.log(intern)
+      teamMemberData.push(intern)
       teamSelect();
-    })
-    
+    })  
+}
+
+const generatePage = () => {
+  fs.writeFile('./dist/myTeam.html', generateTeamCards(teamMemberData), (err) => {
+    if (err) {
+      return console.error(err)
+    } else {
+      return console.log("Team Page generated!")
+    }
+  }) 
 }
 
 init();
