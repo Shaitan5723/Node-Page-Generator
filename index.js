@@ -3,7 +3,7 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const fs = require("fs");
-const generateTeamCards = require("./src/htmltemplate");
+const generateHTML = require("./src/htmltemplate");
 const teamMemberData = [];
 
 const managerQuestions = [
@@ -117,7 +117,8 @@ const teamSelect = () => {
       console.log("Lets take a look at who they are.")  
       console.log(teamMemberData);
       generatePage();
-
+      break;
+      
       default:
         return console.log("Oops, something went wrong, please run the program again")
     }
@@ -154,7 +155,7 @@ const internQ = () => {
 }
 
 const generatePage = () => {
-  fs.writeFile('./dist/myTeam.html', generateTeamCards(teamMemberData), (err) => {
+  fs.writeFile('./dist/myTeam.html', generateHTML(teamMemberData), (err) => {
     if (err) {
       return console.error(err)
     } else {
