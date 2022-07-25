@@ -15,7 +15,7 @@ https://user-images.githubusercontent.com/105050107/180792068-193ce657-24db-42bf
 In case the above video does not work, please use [this link](https://drive.google.com/file/d/13MVYTzTgjIM3-qX-cjhtmnI7jg4oe0R5/view?usp=sharing)
 </br>
 
-The generated file in VS Code:
+The generated file as shown in a browser setting:
 ![generated_webpage](/assets/images/generated_html.png)
 
 The generated file is named myTeam.html and is in the dist folder. 
