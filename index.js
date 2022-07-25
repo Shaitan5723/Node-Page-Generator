@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
-// const Engineer = require("./lib/Engineer");
-// const Intern = require("./lib/Intern");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 // const fs = require("fs");
 
 const managerQuestions = [
@@ -92,33 +92,53 @@ const init = () => {
         manager.email = managerData.managerEmail
         manager.officeNumber = managerData.managerOffice
         console.log(manager)
+        teamSelect();
     })
     
 }
 
 const teamSelect = () => {
   inquirer.prompt(selectTeam)
-    .then(selected, (err))
+    .then((selected) => {
     if (selected === "Engineer") {
-      engQ
+      engQ()
     } else if (selected === "Intern"){
-      internQ
+      internQ()
     } else if (selected === "I have finished building my team"){
       return console.log("Congratulations on building your team!")
     }
     else {
       return console.error(err)
     }
+  })
 }
 
 const engQ = () => {
   inquirer.prompt(engineerQuestions) //prompts the users with the engineer's questions listed above
-    .then(teamSelect, (err))
+  .then((engineerData) => {
+    const engineer = new Engineer()
+      engineer.name = engineerData.engineerName
+      engineer.id = engineerData.engineerID
+      engineer.email = engineerData.engineerEmail
+      engineer.github = engineerData.engineerGithub
+      console.log(engineer)
+      teamSelect();
+    })
+    
 }
 
 const internQ = () => {
   inquirer.prompt(internQuestions) //prompts the users with the engineer's questions listed above
-    .then(teamSelect, (err))
+  .then((internData) => {
+    const intern = new Intern()
+      intern.name = internData.internName
+      intern.id = internData.internID
+      intern.email = internData.internEmail
+      intern.github = internData.internSchool
+      console.log(intern)
+      teamSelect();
+    })
+    
 }
 
 init();
