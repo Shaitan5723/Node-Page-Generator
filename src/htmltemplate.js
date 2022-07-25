@@ -8,7 +8,7 @@ const generateTeamCards = (teamMemberData) => {
                 <h5 class="card-title">Manager</h5>
                 <p class="card-text">Name: ${manager.name} </br>
                 ID: ${manager.id} </br>
-                Email: ${manager.email} </br>
+                Email: <a href="mailto:${manager.email}">${manager.email}</a> </br>
                 Office Number: ${manager.officeNumber} </br>
                 </p>
               </div>
@@ -21,8 +21,8 @@ const generateTeamCards = (teamMemberData) => {
                 <h5 class="card-title">Engineer</h5>
                 <p class="card-text">Name: ${engineer.name} </br>
                   ID: ${engineer.id} </br>
-                  Email: ${engineer.email} </br>
-                  Github: ${engineer.github} </br>
+                  Email: <a href="mailto:${engineer.email}">${engineer.email}</a> </br>
+                  Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a> </br>
                 </p>
               </div>
             </div>`
@@ -34,7 +34,7 @@ const generateTeamCards = (teamMemberData) => {
                <h5 class="card-title">Intern</h5>
                 <p class="card-text">Name: ${intern.name} </br>
                 ID: ${intern.id} </br>
-                Email: ${intern.email} </br>
+                Email: <a href="mailto:${intern.email}">${intern.email}</a> </br>
                 School: ${intern.school} </br>
                 </p>
              </div>
