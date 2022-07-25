@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-// const fs = require("fs");
+const fs = require("fs");
 
 const managerQuestions = [
   { // User input type of question
@@ -100,15 +100,15 @@ const init = () => {
 const teamSelect = () => {
   inquirer.prompt(selectTeam)
     .then((selected) => {
-    if (selected === "Engineer") {
-      engQ()
-    } else if (selected === "Intern"){
-      internQ()
-    } else if (selected === "I have finished building my team"){
+    switch (selected.teamSelect) {
+      case "Engineer": 
+        engQ();
+        break;
+      case "Intern":
+        internQ();
+        break;
+      case "I have finished building my team":
       return console.log("Congratulations on building your team!")
-    }
-    else {
-      return console.error(err)
     }
   })
 }
@@ -134,7 +134,7 @@ const internQ = () => {
       intern.name = internData.internName
       intern.id = internData.internID
       intern.email = internData.internEmail
-      intern.github = internData.internSchool
+      intern.school = internData.internSchool
       console.log(intern)
       teamSelect();
     })
