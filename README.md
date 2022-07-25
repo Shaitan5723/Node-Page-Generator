@@ -7,10 +7,12 @@ Users are able to input the details of their team members to quickly generate a 
 Below is a video demo on how the application is used. </br>
 
 
+https://user-images.githubusercontent.com/105050107/180792068-193ce657-24db-42bf-a831-baeee8ca124c.mp4
+
 
 </br>
 
-In case the above video does not work, please use [this link](https://drive.google.com/file/d/1klkf_0FpcgkR5JVpuw8wr9nYB9a2SkAY/view?usp=sharing)
+In case the above video does not work, please use [this link](https://drive.google.com/file/d/13MVYTzTgjIM3-qX-cjhtmnI7jg4oe0R5/view?usp=sharing)
 </br>
 
 The generated file in VS Code:
